@@ -41,7 +41,6 @@ $(function () {
     /*调用菜单hover样式函数*/
     munsStyle();
 
-
     /*
      * 计算滚动条距顶部的距离并设置菜单导航样式
      * */
@@ -95,71 +94,5 @@ $(function () {
             return scrollPos;
         }
     }
-
     roll_distance();
-
 });
-/*文章评论提交事件*/
-
-function noteEvent(result, nick, textarea) {
-    setTimeout(function () {
-        $('.comment-prompt').css('display', 'none');
-        $('.comment-success').css('display', 'block');
-        var isRes = true;
-        var err = '';
-        switch (result) {
-            case '-1':
-                nick.css('border', 'solid 2px red');
-                err = '昵称不能为空！';
-                isRes = false;
-                break;
-            case '-2':
-                $('.comment-box').css('border', 'solid 2px red');
-                $('#comment-submit').css('border-right', 'solid 2px red').css('border-bottom', 'solid 2px red');
-                err = '内容太短！';
-                isRes = false;
-                break;
-            case '-3':
-                err = '您已评论过该文章！';
-                isRes = false;
-                break;
-            case '-4':
-                err = '评论失败，请稍后重试！';
-                isRes = false;
-                break;
-            case 'ok':
-                nick.val('');
-                textarea.val('');
-                $('input[name=contact]').val('');
-                $('.comment-success .fa').text('');
-                $('.comment-success .comment-prompt-text').text('评论提交成功,等待审核...').parent().css('background-color', '#FBFBFB').find('.fa').addClass('fa-check');
-                $('.comment-box').css('border', 'solid 2px #F2F2F2');
-                $('#comment-submit').css('border-right', 'solid 2px #F2F2F2').css('border-bottom', 'solid 2px #F2F2F2');
-                break;
-            default:
-                err = '请求超时，请稍后重试！';
-                isRes = false;
-                break;
-        }
-        if (!isRes) {
-            $('.comment-success .fa').removeClass('fa-check').text('×');
-            $('.comment-success .comment-prompt-text').text(err).parent().css('background-color', 'rgb(243,180,180)');
-        }
-        setTimeout(function () {
-            $('.comment-success').css('display', 'none');
-        }, 4000);
-    }, 2000);
-}
-function share() {
-    $('.bdsharebuttonbox').html(
-        '<div id="ckepop"> <span class="jiathis_txt">分享到：</span>' +
-        ' <a class="jiathis_button_weixin">微信</a> <a id="share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>' +
-        '<a class="jiathis_counter_style"></a></div><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"><\/script></div>'
-    );
-    $('#share').focus(function () {
-        $(this).attr('href', 'javascript:void(0);');
-    }).click(function () {
-        $('.jiathis_button_expanded').trigger("click");
-    });
-    $('.jiathis_style').css('z-index', '888').css('width', '500px');
-}

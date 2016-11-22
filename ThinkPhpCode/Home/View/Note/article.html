@@ -8,10 +8,10 @@
     <nav class="navbar navbar-default" id="navbar">
         <div class="container">
             <div class="header-topbar hidden-xs link-border">
-                <ul class="site-nav topmenu">
-                    <li class="animated fadeInLeftBig">今天的感悟是明天的成就，</li>
-                    <li class="animated fadeInLeftBig">坦然面对生活即是对未来的承诺—</li>
-                    <li class="animated fadeInLeftBig">
+                <ul class="site-nav topmenu animated fadeInLeftBig">
+                    <li>今天的感悟是明天的成就，</li>
+                    <li>坦然面对生活即是对未来的承诺—</li>
+                    <li>
                         hanvs
                     </li>
                 </ul>
@@ -39,16 +39,16 @@
             </span>
                     </div>
                 </form>
-                <ul class="nav navbar-nav navMuns navbar-right animated fadeInDownBig">
+                <ul class="nav navbar-nav  navbar-right animated fadeInDownBig">
                     <li><a data-cont="单调的季节" href="__MYHOST__">首页</a></li>
-                    <li class="selected"><a data-cont="笔记" href="__MYHOST__/Note/">笔记</a></li>
-                    <li><a data-cont="日志" href="">日志</a></li>
-                    <li><a data-cont="相册" href="">相册</a></li>
-                    <li><a data-cont="回忆录" href="">回忆录</a></li>
-                    <li><a data-cont="时光轴" href="">时光轴</a></li>
-                    <li><a data-cont="音悦盒" href="">音悦盒</a></li>
-                    <li><a data-cont="留言板" href="">留言板</a></li>
-                    <li><a data-cont="工具箱" href="">工具箱</a></li>
+                    <li class="selected"><a data-cont="笔记" href="__MYHOST__/Note">笔记</a></li>
+                    <li><a data-cont="日志" href="__MYHOST__/Log">日志</a></li>
+                    <li><a data-cont="相册" href="__MYHOST__/Photo">相册</a></li>
+                    <li><a data-cont="回忆录" href="__MYHOST__/Memoirs">回忆录</a></li>
+                    <li><a data-cont="时光轴" href="__MYHOST__/TimeLine">时光轴</a></li>
+                    <li><a data-cont="音悦盒" href="__MYHOST__/MusicBox">音悦盒</a></li>
+                    <li><a data-cont="留言板" href="__MYHOST__Messages">留言板</a></li>
+                    <li><a data-cont="工具箱" href="__MYHOST__/Tool">工具箱</a></li>
                 </ul>
             </div>
         </div>
@@ -220,36 +220,37 @@
         <div class="widget widget_sentence">
             <h3>手册文档</h3>
             <div class="widget-sentence-link">
-                <a href="" title="" target="_blank">HTML</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">javaScript</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">PHP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">更多</a>
+                <a href="__MYHOST__/Tool/manual.html?class=<?= base64_encode('html')?>" title="HTML" target="_blank">HTML</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="__MYHOST__/Tool/manual.html?class=<?= base64_encode('css')?>" title="CSS" target="_blank">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="__MYHOST__/Tool/manual.html?class=<?= base64_encode('javascript')?>" title="javaScript" target="_blank">javaScript</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="__MYHOST__/Tool/manual.html?class=<?= base64_encode('php')?>" title="PHP" target="_blank">PHP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="__MYHOST__/Tool/manual.html" title="更多手册文档" target="_blank">更多</a>
             </div>
 
         </div>
         <div class="widget widget_hot">
             <h3>最新评论文章</h3>
             <ul>
-                <li>
-                    <a title="" href="">
+                <foreach name="newest" item="v">
+                    <li>
+                        <a title="" href="__MYHOST__/Note/article.html?class={$v.type|base64_encode}&name={$v.name|base64_encode}">
                         <span class="thumbnail">
-                            <img class="thumb" data-original="__PUBLIC__pc/images/icon.png"
-                                 src="__PUBLIC__pc/images/icon.png"
-                                 style="display: block;">
+                            <img class="thumb" data-original="__PUBLIC__dedicine/images/sort/img-{$v.type}.jpg"
+                                 src="__PUBLIC__dedicine/images/sort/img-{$v.type}.jpg" style="display: block;">
                         </span>
-                        <span class="text">标题标题标题</span>
-                        <span class="muted">
+                            <span class="text">{$v.name}</span>
+                            <span class="muted">
                                 <i class="glyphicon glyphicon-time"></i>
-                            2016-11-01
-                        </span>
-                        <span class="muted">
-                                <i class="glyphicon glyphicon-eye-open"></i>
-                                88
-                            </span>
-                    </a>
-                </li>
 
+                                {$v.date|date='Y-m-d H:i:s',###}
+                        </span>
+                            <span class="muted">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                            {$v.view}
+                        </span>
+                        </a>
+                    </li>
+                </foreach>
             </ul>
         </div>
     </aside>
@@ -285,16 +286,14 @@
                 'textType': '{$res.type}',
                 'textName': '{$res.name}'
             }, function (result) {
-                noteEvent(result, nick, textarea);
+                note.submit(result, nick, textarea);
             });
         }
         return false;
     });
-    $(function(){share();});
+    $(function(){note.share();});
 </script>
 
 <block name="include">
     <include file="Home/View/Public/footer.html"/>
 </block>
-</body>
-</html>

@@ -6,11 +6,11 @@ return array(
 //    'DEFAULT_MODULE' => 'Home',
     /*数据库设置*/
     'DB_TYPE'=>'mysql',//数据库类型
-    'DB_HOST'=>'118.244.213.127',//主机
+    'DB_HOST'=>'localhost',//主机
     'DB_PORT'=>'3306',//端口
     'DB_CHARSET'=>'utf8',//设置字符集
     'DB_USER'=>'root',//用户名
-    'DB_PWD'=>'hanyi199529',//密码
+    'DB_PWD'=>'199529',//密码
     'DB_NAME'=>'blogs',//数据库名
     'DB_PREFIX'=>'h_',//表前缀
 

@@ -12,27 +12,30 @@
     <link rel="stylesheet" type="text/css" href="http://thinkphp.com/Public/pc/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://thinkphp.com/Public/pc/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="http://thinkphp.com/Public/pc/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="http://thinkphp.com/Public/pc/css/gather.css">
+    <link rel="stylesheet" type="text/css" href="http://thinkphp.com/Public/pc/css/hoverBas.css">
     <link rel="shortcut icon" href="http://thinkphp.com/Public/dedicine/images/favicon.ico">
-    <script src="http://thinkphp.com/Public/dedicine/js/jquery-2.1.4.min.js"></script>
-    <script src="http://thinkphp.com/Public/pc/js/nprogress.js"></script>
-    <script src="http://thinkphp.com/Public/pc/js/jquery.lazyload.min.js"></script>
+    <script src="http://thinkphp.com/Public/dedicine/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="http://thinkphp.com/Public/pc/js/nprogress.js" type="text/javascript"></script>
+    <script src="http://thinkphp.com/Public/pc/js/jquery.lazyload.min.js" type="text/javascript"></script>
+    <script src="http://thinkphp.com/Public/pc/js/gather.js" type="text/javascript"></script>
     <!--[if gte IE 9]>
     <script src="http://thinkphp.com/Public/dedicine/js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="http://thinkphp.com/Public/pc/js/html5shiv.min.js" type="text/javascript"></script>
     <script src="http://thinkphp.com/Public/pc/js/respond.min.js" type="text/javascript"></script>
     <script src="http://thinkphp.com/Public/pc/js/selectivizr-min.js" type="text/javascript"></script>
     <![endif]-->
-    <title>单调的季节</title>
+    <title>首页-单调的季节</title>
 </head>
 <body class="user-select">
 <header class="header">
     <nav class="navbar navbar-default" id="navbar">
         <div class="container">
             <div class="header-topbar hidden-xs link-border">
-                <ul class="site-nav topmenu">
-                    <li class="animated fadeInLeftBig">今天的感悟是明天的成就，</li>
-                    <li class="animated fadeInLeftBig">坦然面对生活即是对未来的承诺—</li>
-                    <li class="animated fadeInLeftBig">
+                <ul class="site-nav topmenu animated fadeInLeftBig">
+                    <li>今天的感悟是明天的成就，</li>
+                    <li>坦然面对生活即是对未来的承诺—</li>
+                    <li>
                         hanvs
                     </li>
                 </ul>
@@ -60,16 +63,16 @@
             </span>
                     </div>
                 </form>
-                <ul class="nav navbar-nav navMuns navbar-right animated fadeInDownBig">
+                <ul class="nav navbar-nav  navbar-right animated fadeInDownBig">
                     <li class="selected"><a data-cont="单调的季节" href="http://thinkphp.com/index.php">首页</a></li>
-                    <li><a data-cont="笔记" href="http://thinkphp.com/index.php/Note/">笔记</a></li>
-                    <li><a data-cont="日志" href="">日志</a></li>
-                    <li><a data-cont="相册" href="">相册</a></li>
-                    <li><a data-cont="回忆录" href="">回忆录</a></li>
-                    <li><a data-cont="时光轴" href="">时光轴</a></li>
-                    <li><a data-cont="音悦盒" href="">音悦盒</a></li>
-                    <li><a data-cont="留言板" href="">留言板</a></li>
-                    <li><a data-cont="工具箱" href="">工具箱</a></li>
+                    <li><a data-cont="笔记" href="http://thinkphp.com/index.php/Note">笔记</a></li>
+                    <li><a data-cont="日志" href="http://thinkphp.com/index.php/Log">日志</a></li>
+                    <li><a data-cont="相册" href="http://thinkphp.com/index.php/Photo">相册</a></li>
+                    <li><a data-cont="回忆录" href="http://thinkphp.com/index.php/Memoirs">回忆录</a></li>
+                    <li><a data-cont="时光轴" href="http://thinkphp.com/index.php/TimeLine">时光轴</a></li>
+                    <li><a data-cont="音悦盒" href="http://thinkphp.com/index.php/MusicBox">音悦盒</a></li>
+                    <li><a data-cont="留言板" href="http://thinkphp.com/index.phpMessages">留言板</a></li>
+                    <li><a data-cont="工具箱" href="http://thinkphp.com/index.php/Tool">工具箱</a></li>
                 </ul>
             </div>
         </div>
@@ -107,78 +110,43 @@
             <!--轮播END-->
             <article class="excerpt-minic excerpt-minic-index">
                 <h2><span class="red">【推荐】</span>
-                    <a target="_blank" href="" title="">标题标题</a>
+                    <a target="_blank" href="http://thinkphp.com/index.php/Note/article.html?class=<?php echo (base64_encode($recommend["type"])); ?>&name=<?php echo (base64_encode($recommend["name"])); ?>" title="<?php echo ($recommend["name"]); ?>"><?php echo ($recommend["name"]); ?></a>
                 </h2>
-                <p class="note">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                <p class="note"><?php echo (mb_substr($recommend["content"],0,50,'utf-8')); ?>...</p>
             </article>
             <div class="title">
                 <h3>最新文章</h3>
                 <div class="more">
-                    <a href="" title="">HTML</a>
-                    <a href="" title="">CSS</a>
-                    <a href="" title="">javascript</a>
-                    <a href="" title="">jQuery</a>
-                    <a href="" title="">PHP</a>
-                    <a href="" title="">MySQL</a>
-                    <a href="" title="">C Sharp</a>
-                    <a href="" title="">Node.js</a>
-                    <a href="" title="">更多</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('html') ?>" title="HTML">HTML</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('css') ?>" title="CSS">CSS</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('javascript') ?>" title="javascript">javascript</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('jquery') ?>" title="jQuery">jQuery</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('php') ?>" title="PHP">PHP</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('mysql') ?>" title="MySQL">MySQL</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('csharp') ?>" title="C Sharp">C Sharp</a>
+                    <a href="http://thinkphp.com/index.php/Note/lists.html?class=<?= base64_encode('nodejs') ?>" title="Node.js">Node.js</a>
+                    <a href="http://thinkphp.com/index.php/Note" title="">更多</a>
                 </div>
             </div>
-            <article class="excerpt excerpt-1" style="">
-                <a class="focus" href="" title="" target="_blank">
-                    <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-html.jpg" src="http://thinkphp.com/Public/dedicine/images/sort/img-html.jpg"
+            <?php if(is_array($NewLog)): foreach($NewLog as $key=>$v): ?><article class="excerpt excerpt-1" style="">
+                <a class="focus" href="http://thinkphp.com/index.php/Note/article.html?class=<?php echo (base64_encode($v["type"])); ?>&name=<?php echo (base64_encode($v["name"])); ?>" title="" target="_blank">
+                    <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-html.jpg"
+                         src="http://thinkphp.com/Public/dedicine/images/sort/img-<?php echo ($v["type"]); ?>.jpg"
                          style="display: inline;">
                 </a>
-                <header><a class="cat" href="" title="HTML">HTML<i></i></a>
-                    <h2><a href="" title=""
-                           target="_blank"></a>
+                <header><a class="cat" href="http://thinkphp.com/index.php/Note/lists.html?class=<?php echo (base64_encode($v["type"])); ?>" title="HTML"><?php echo (ucfirst($v["type"])); ?><i></i></a>
+                    <h2><a href="http://thinkphp.com/index.php/Note/article.html?class=<?php echo (base64_encode($v["type"])); ?>&name=<?php echo (base64_encode($v["name"])); ?>" title="<?php echo ($v["name"]); ?>"
+                           target="_blank"><?php echo ($v["name"]); ?></a>
                     </h2>
                 </header>
                 <p class="meta">
-                    <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
+                    <time class="time"><i class="glyphicon glyphicon-time"></i> <?php echo (date('Y-m-d H:i:s',$v["date"])); ?></time>
+                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> <?php echo ($v["view"]); ?></span>
                     <a class="comment" href="" title="评论" target="_blank">
-                        <i class="glyphicon glyphicon-comment"></i> 4</a>
+                        <i class="glyphicon glyphicon-comment"></i> <?php echo ($v["discuss"]); ?></a>
                 </p>
-                <p class="note">缩略内容缩略内容缩略内容缩略内容缩略内容缩略内容</p>
-            </article>
-            <article class="excerpt excerpt-1" style="">
-                <a class="focus" href="" title="" target="_blank">
-                    <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-css.jpg" src="http://thinkphp.com/Public/dedicine/images/sort/img-css.jpg"
-                         style="display: inline;">
-                </a>
-                <header><a class="cat" href="" title="CSS">CSS<i></i></a>
-                    <h2><a href="" title=""
-                           target="_blank"></a>
-                    </h2>
-                </header>
-                <p class="meta">
-                    <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
-                    <a class="comment" href="" title="评论" target="_blank">
-                        <i class="glyphicon glyphicon-comment"></i> 4</a>
-                </p>
-                <p class="note">缩略内容缩略内容缩略内容缩略内容缩略内容缩略内容</p>
-            </article>
-            <article class="excerpt excerpt-1" style="">
-                <a class="focus" href="" title="" target="_blank">
-                    <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-mysql.jpg" src="http://thinkphp.com/Public/dedicine/images/sort/img-mysql.jpg"
-                         style="display: inline;">
-                </a>
-                <header><a class="cat" href="" title="MySQL">MySQL<i></i></a>
-                    <h2><a href="" title=""
-                           target="_blank"></a>
-                    </h2>
-                </header>
-                <p class="meta">
-                    <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
-                    <a class="comment" href="" title="评论" target="_blank">
-                        <i class="glyphicon glyphicon-comment"></i> 4</a>
-                </p>
-                <p class="note">缩略内容缩略内容缩略内容缩略内容缩略内容缩略内容</p>
-            </article>
+                <p class="note"><?php echo (mb_substr($v["content"],0,80,'utf-8')); ?>...</p>
+            </article><?php endforeach; endif; ?>
             <nav class="pagination" style="display: none;">
                 <ul>
                     <li class="prev-page"></li>
@@ -235,34 +203,36 @@
         <div class="widget widget_sentence">
             <h3>手册文档</h3>
             <div class="widget-sentence-link">
-                <a href="" title="" target="_blank">HTML</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">javaScript</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">PHP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" title="" target="_blank">更多</a>
+                <a href="http://thinkphp.com/index.php/Tool/manual.html?class=<?= base64_encode('html')?>" title="HTML" target="_blank">HTML</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://thinkphp.com/index.php/Tool/manual.html?class=<?= base64_encode('css')?>" title="CSS" target="_blank">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://thinkphp.com/index.php/Tool/manual.html?class=<?= base64_encode('javascript')?>" title="javaScript" target="_blank">javaScript</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://thinkphp.com/index.php/Tool/manual.html?class=<?= base64_encode('php')?>" title="PHP" target="_blank">PHP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://thinkphp.com/index.php/Tool/manual.html" title="更多手册文档" target="_blank">更多</a>
             </div>
 
         </div>
         <div class="widget widget_hot">
             <h3>最新评论文章</h3>
             <ul>
-                <li>
-                    <a title="" href="">
+                <?php if(is_array($newest)): foreach($newest as $key=>$v): ?><li>
+                    <a title=""
+                       href="http://thinkphp.com/index.php/Note/article.html?class=<?php echo (base64_encode($v["type"])); ?>&name=<?php echo (base64_encode($v["name"])); ?>">
                         <span class="thumbnail">
-                            <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-jquery.jpg" src="http://thinkphp.com/Public/dedicine/images/sort/img-jquery.jpg"
-                                 style="display: block;">
+                            <img class="thumb" data-original="http://thinkphp.com/Public/dedicine/images/sort/img-<?php echo ($v["type"]); ?>.jpg"
+                                 src="http://thinkphp.com/Public/dedicine/images/sort/img-<?php echo ($v["type"]); ?>.jpg" style="display: block;">
                         </span>
-                        <span class="text">标题标题标题</span>
+                        <span class="text"><?php echo ($v["name"]); ?></span>
                             <span class="muted">
                                 <i class="glyphicon glyphicon-time"></i>
-                            2016-11-01
+
+                                <?php echo (date('Y-m-d H:i:s',$v["date"])); ?>
                         </span>
                         <span class="muted">
                             <i class="glyphicon glyphicon-eye-open"></i>
-                            88
+                            <?php echo ($v["view"]); ?>
                         </span>
                     </a>
-                </li>
+                </li><?php endforeach; endif; ?>
             </ul>
         </div>
     </aside>
@@ -274,8 +244,8 @@
         </p>
     </div>
 </footer>
-<script src="http://thinkphp.com/Public/dedicine/js/bootstrap.min.js"></script>
-<script src="http://thinkphp.com/Public/pc/js/jquery.ias.js"></script>
-<script src="http://thinkphp.com/Public/pc/js/scripts.js"></script>
+<script src="http://thinkphp.com/Public/dedicine/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://thinkphp.com/Public/pc/js/jquery.ias.js" type="text/javascript"></script>
+<script src="http://thinkphp.com/Public/pc/js/scripts.js" type="text/javascript"></script>
 </body>
 </html>
