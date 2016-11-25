@@ -47,6 +47,7 @@
                     <li><a data-cont="音悦盒" href="__MYHOST__/MusicBox">音悦盒</a></li>
                     <li><a data-cont="留言板" href="__MYHOST__Messages">留言板</a></li>
                     <li><a data-cont="工具箱" href="__MYHOST__/Tool">工具箱</a></li>
+                    <li><a data-cont="资讯信息" href="__MYHOST__/News">资讯信息</a></li>
                 </ul>
             </div>
         </div>
@@ -55,27 +56,25 @@
 <section class="container">
     <div class="content-wrap">
         <div class="content">
-            <!--&lt;!&ndash;左侧内容&ndash;&gt;-->
-            <!--<foreach name="logRes" item="v">-->
-                    <!--<a href="__MYHOST__/Note/lists.html?class=<?= base64_encode($v.id)?>">-->
-                        <!--<img src="{$v.imgurl}" title="{$v.name}"><br>-->
-                        <!--<label>心情指数:{$v.mood}</label>-->
-                        <!--<label>发布时间:{$v.date|date='Y-m-d H:i:s',###}</label>-->
-                    <!--</a>-->
-            <!--</foreach>-->
             <ol class="log-list">
-                <for start="1" end="5">
+                <foreach item="v" name="logRes">
                 <li rel="float-shadow" class="button float-shadow">
-                    <img  src="__PUBLIC__dedicine/images/sort/img-css.jpg" alt="">
+                    <if condition="$v.imgurl|strlen gt 1">
+                    <img  src="{$v.imgurl}" alt="">
+                     <else/>
+                        <img  src="__PUBLIC__dedicine/images/log-default.png" alt="">
+                    </if>
                     <div>
-                        <a href=""><h4>测试测试</h4> </a>
-                        <label>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</label>
+                        <a href="__MYHOST__/Log/showLog.html?id={$v.id|base64_encode|base64_encode}&name={$v.name|base64_encode|base64_encode}">
+                            <h4>测试测试</h4>
+                        </a>
+                        <label>&nbsp;&nbsp;&nbsp;{$v.content}</label>
                     </div>
                     <div>
-                        <label>2016-11-15 15:12:33</label>
+                        <label>{$v.date|date='Y-m-d H:i:s',###}</label>
                     </div>
                 </li>
-                </for>
+                </foreach>
             </ol>
         </div>
     </div>
